@@ -6,9 +6,9 @@ select nombre ,precio from producto;
 -- 3 Lista todas las columnas de los productos.
 show columns from producto;
 -- 4 Lista el nombre el precio en euros y en dolares.
-select nombre,precio ,round(precio*04,2)from producto;
+select nombre,precio ,round(precio*4,2) from producto;
 -- 5 Lista el nombre el precio en euros y en dolares(nombre producto,euros,dolares).
-select nombre as nombreProducto,precio as euros, round(precio*04,2) as dolar from producto;
+select nombre as nombreProducto,precio as euros, round(precio*4,2) as dolar from producto;
 -- 6 Lista el nombre y el precio de todos los productos en Mayúsculas.
 select upper(nombre) as nombreMayusculas, precio from producto;
 -- 7 lista el nombre y el precio de todos los productos en minúscula.
@@ -28,18 +28,17 @@ select nombre from fabricante order by nombre asc;
 -- 14 Lista los nombres de los fabricantes ordenados de manera descendente.
 select nombre from fabricante order by nombre desc;
 -- 15 Lista los nombres de los productos ordenados, en primer lugar, por el nombre de manera ascendente y, en segundo lugar, por el precio de manera descendente
-select nombre from producto order by nombre asc;
-select precio from producto order by precio desc;
+select nombre  and precio from producto order by nombre asc , precio desc;
 -- 16 Devuelve una lista con las 5 primeras filas de la tabla fabricante.
 select * from fabricante limit 5;
 -- 17 Devuelve una lista con 2 filas a partir de la cuarta fila de la tabla fabricante. La cuarta fila también se debe incluir en la respuesta.
-select * from fabricante limit 2 offset 4;
+select * from fabricante limit 2 offset 3;
 
 USE universidad;
 -- 1 Devuelve una lista con 2 filas a partir de la cuarta fila de la tabla fabricante. La cuarta fila también se debe incluir en la respuesta.
 SELECT apellido1, apellido2, nombre FROM persona WHERE tipo = 'alumno' ORDER BY apellido1, apellido2, nombre ASC;
 -- 2 Averigua el nombre y los dos apellidos de los alumnos que no han dado de alta su número de teléfono en la base de datos.
-SELECT apellido1, apellido2, nombre FROM persona WHERE tipo = 'alumno' AND telefono IS NULL ORDER BY apellido1, apellido2, nombre ASC;
+SELECT apellido1, apellido2, nombre FROM persona WHERE tipo = 'alumno' AND telefono IS NULL;
 -- 3 Devuelve el listado de los alumnos que nacieron en 1999."
 SELECT apellido1, apellido2, nombre, fecha_nacimiento  FROM persona WHERE tipo = 'alumno' AND fecha_nacimiento LIKE '1999%' ORDER BY apellido1, apellido2, nombre ASC;
 -- 4 Devuelve el listado de profesores/as que no han dado de alta su número de teléfono en la base de datos y, además, su NIF termina en K
